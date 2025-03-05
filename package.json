@@ -105,7 +105,7 @@
     "sass-loader": "^10.4.1",
     "script-loader": "^0.7.2",
     "style-loader": "^1.2.1",
-    "stylus": "^0.54.7",
+    "stylus": "^0.64.0",
     "stylus-loader": "^3.0.2",
     "svg-sprite-loader": "^3.8.0",
     "text-loader": "0.0.1",
