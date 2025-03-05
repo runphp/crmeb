@@ -46,7 +46,7 @@
         "guzzlehttp/guzzle": "6.5.5",
         "alipaysdk/easysdk": "^2.2",
         "lizhichao/word": "^2.1",
-        "alibabacloud/dysmsapi-20170525": "2.0.16",
+        "alibabacloud/dysmsapi-20170525": "3.1.1",
         "fastknife/ajcaptcha": "^1.1",
         "volcengine/volc-sdk-php": "^1.0",
         "workerman/crontab": "^1.0",
