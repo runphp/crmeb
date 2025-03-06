@@ -1,39 +1,126 @@
-<div align="center">
-    <picture>
-        <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/7659/174594540-5e29e523-396a-465b-9a6e-6cab5b15a568.svg">
-        <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/7659/174594559-0b3ddaa7-e75b-4f10-9dee-b51431a9fd4c.svg">
-        <img src="https://user-images.githubusercontent.com/7659/174594540-5e29e523-396a-465b-9a6e-6cab5b15a568.svg" alt="Dependabot" width="336">
-    </picture>
-</div>
+# CRMNB商城系统
 
-## Dependabot Demo Repository
+## 项目介绍
+CRMNB商城系统是一套基于Laravel和Vue3开发的现代化电商系统解决方案。系统采用前后端分离架构，具有高性能、可扩展、易维护等特点，适用于各类电商业务场景。
 
-This repo contains some projects with outdated dependencies. Fork it to try out
-Dependabot :dependabot:!
+## 技术栈
 
-### Enabling Security Updates
+### 后端技术栈
+- PHP 8.1+
+- Laravel 10.x框架
+- PostgreSQL数据库
+- Redis缓存
 
-- In your fork, click the **Settings** tab
-- In the left hand side navigation, click **Code security and analysis**
-- Enable **Dependabot security updates** or **Grouped security updates**
-- Dependabot will now start creating PRs for detected security vulnerabilities
-- Go into the **Security** tab and click **Dependabot** in the left hand side navigation to see what Dependabot is working on
+### 管理后台技术栈
+- Vue 3.x
+- Element Plus UI框架
+- TypeScript
+- Vite
+- Pinia状态管理
+- Vue Router
 
-<img width="929" alt="screenshot showing Dependabot working on Security Updates" src="https://github.com/dependabot/demo/assets/886768/9295c61a-631b-4c56-9c00-ff078874f362">
+## 环境要求
+- PHP >= 8.1
+- Composer
+- Node.js >= 16
+- PostgreSQL >= 14
+- Redis >= 6.0
 
-After about 5 minutes you should see some PRs open. Merge them and the Securty Alerts will close 🎉
+## 安装部署
 
-### Enabling Version Updates
+### 后端API安装
+1. 克隆项目
+```bash
+git clone https://github.com/runphp/crmnb.git
+cd crmnb/api
+```
 
-This demo includes a `dependabot.yml` which configures [Version Updates](https://docs.github.com/github/administering-a-repository/keeping-your-dependencies-updated-automatically), but forks don't automatically start with Dependabot enabled.
+2. 安装依赖
+```bash
+composer install
+```
 
-The enable Dependabot on your fork:
-- Click the **Insights** tab
-- In the left hand side navigation, click **Dependency Graph**
-- Click on the **Dependabot** tab
-- Click on the **Enable Dependabot** button
-- After a moment, refresh the page and you should see Dependabot hard at work
+3. 环境配置
+```bash
+cp .env.example .env
+# 编辑.env文件，配置数据库等信息
+```
 
-<img width="917" alt="screenshot showing Dependabot working on Version Updates" src="https://github.com/dependabot/demo/assets/886768/4adf5727-255a-4ae1-97f7-70e94dc1134b">
+4. 初始化数据库
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
-After a few minutes, you should get some more PRs!
+5. 启动服务
+```bash
+php artisan serve
+```
+
+### 管理后台安装
+1. 进入admin目录
+```bash
+cd ../admin
+```
+
+2. 安装依赖
+```bash
+pnpm install
+```
+
+3. 开发环境运行
+```bash
+pnpm dev
+```
+
+4. 生产环境构建
+```bash
+pnpm build
+```
+
+## 开发指南
+
+### 目录结构
+```
+├── api                 # 后端API项目
+│   ├── app            # 应用代码
+│   ├── config         # 配置文件
+│   ├── database       # 数据库迁移和种子
+│   ├── routes         # 路由定义
+│   └── tests          # 测试文件
+├── admin              # 管理后台项目
+│   ├── src           # 源代码
+│   ├── public        # 静态资源
+│   └── tests         # 测试文件
+```
+
+### 开发规范
+- 遵循PSR-12编码规范
+- 使用TypeScript进行开发
+- 提交代码前进行代码格式化
+- 编写单元测试
+
+### 分支管理
+- main: 主分支，用于生产环境
+- develop: 开发分支，用于功能开发
+- feature/*: 功能分支
+- hotfix/*: 紧急修复分支
+
+## 贡献指南
+1. Fork 项目
+2. 创建功能分支
+3. 提交代码
+4. 创建Pull Request
+
+## 版权信息
+
+Copyright © 2024 CRMNB
+
+## 技术支持
+
+如果您在使用过程中遇到问题，请通过以下方式获取帮助：
+
+- 官方文档：[文档地址]
+- 问题反馈：[Issues]
+- 技术社区：[社区地址]
+- 商业支持：[联系方式]

@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: crmnb-app
+    container_name: crmnb-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./api:/var/www
+    networks:
+      - crmnb
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    container_name: crmnb-nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./api:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - crmnb
+    depends_on:
+      - app
+
+  db:
+    image: postgres:15-alpine
+    container_name: crmnb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: crmnb
+      POSTGRES_USER: crmnb
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - crmnb
+
+volumes:
+  postgres_data:
+
+networks:
+  crmnb:
+    driver: bridge
